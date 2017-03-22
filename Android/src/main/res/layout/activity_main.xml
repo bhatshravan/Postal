@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF">
+
+
+    <TextView
+        android:text="BARCODE SCANNER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F98908"
+        android:textSize="40dp"
+        android:id="@+id/textView2"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center">
+            <Button android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:text="Flash code"
+                android:id="@+id/b1"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/holo_red_light"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/holo_blue_dark"
+                android:text="SCAN BARCODE"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"/>
+            <Button android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:text="Navigate to address"
+                android:layout_marginTop="20dp"
+                android:id="@+id/b3"
+                android:visibility="invisible"
+                android:background="@android:color/holo_green_light" />
+            <Button android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:text="Call the customer"
+                android:layout_marginTop="20dp"
+                android:id="@+id/b4"
+                android:visibility="invisible"
+                android:background="@android:color/holo_green_light" />
+            <TextView
+                android:text="Scanned text:"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:visibility="invisible"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
