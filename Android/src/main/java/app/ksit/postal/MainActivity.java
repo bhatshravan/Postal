@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Class<?> mClss;
     TextView t1;Button b1,b2,b3,b4;
     String s1,s2,s3,s4,s5;
-    String l1,l2,l3,l4,l5,l6;
+    String l1,l2,l3,l4,l5,l6,o="";
     String[] arr;
 
     @Override
@@ -54,16 +54,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
             }
         });
-     /*   b4=(Button) findViewById(R.id.b4);
-        b4.setOnClickListener(new View.OnClickListener() {
+
+        b4=(Button) findViewById(R.id.b4);
+       try{ b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:0123456789"));
+                intent.setData(Uri.parse("tel:"+o));
                 startActivity(intent);
-            });
-*/
-    }
+        }
+        });}
+       catch (Exception e){
+        Toast.makeText(this, "Error getting phone", Toast.LENGTH_LONG).show(); }
+     }
 
     // Get the results:
     @Override
@@ -86,18 +89,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "PDF417", Toast.LENGTH_SHORT).show();
                     arr = s1.split(";;");
                     if(arr[0].equals("")) {
-                        Toast.makeText(this, "Ours", Toast.LENGTH_LONG).show();
+
                         s3=arr[2];
                         l2="Name: " +arr[1]+"\n";
                         l3="Address: "+s3+"\n";
                         l4="UPU: "+arr[3]+"\n";
                         l5="Type: "+arr[4]+"\n";
                         l6="PIN: "+arr[5]+"\n";
-                        l1="Phone"+arr[6];
+                        l1="Phone: "+arr[6];
+                        o=arr[6];
 
                         b3.setVisibility(View.VISIBLE);
                         b4.setVisibility(View.VISIBLE);
-                        s1=l2+l3+l4+l5+l6;
+                        s1=l2+l3+l4+l5+l6+l1;
                         t1.setText(s1);
 
                     }
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(this, "Not our pdf!!", Toast.LENGTH_LONG).show();
                         s1 = "Not post office barcode but pdf417-Scanned result= \n" + s1;
                         b3.setVisibility(View.GONE);
-                        t1.setText(s1);
+                        t1.setText("Scanned-"+s1);
 
                     }
                 }
