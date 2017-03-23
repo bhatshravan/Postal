@@ -17,10 +17,12 @@
         var o=<?php echo(json_encode($_POST['name'])); ?>;
 
         var s=<?php echo(json_encode($_POST['name'])); ?>;
-        var q=<?php echo(json_encode($_POST['textToEncode'])); ?>;
+        var q=<?php echo(json_encode($_POST['addr'])); ?>;
         var l=<?php echo(json_encode($_POST['upsc'])); ?>;
         var m=<?php echo(json_encode($_POST['zippr'])); ?>;
         var n=<?php echo(json_encode($_POST['pin'])); ?>;
+        var j=<?php echo(json_encode($_POST['tel'])); ?>;
+
 
     /*  var q1="\n ADDRESS:";
         var s1="\n Name:";
@@ -40,14 +42,17 @@
         var l1="\n UPU:";
         var m1="\n Type:";
         var n1="\n PIN:";  
+        var j1="\n Tel:";
+
 
         s=q1.concat(s);
         q=q1.concat(q);
         l=q1.concat(l);
         m=q1.concat(m);
-        n=q1.concat(n);            
+        n=q1.concat(n);      
+        j=q1.concat(j);     
      
-        var fina = s.concat(q,l,m,n);
+        var fina = s.concat(q,l,m,n,j);
         PDF417.init(fina);    
 
         var barcode = PDF417.getBarcodeArray();
@@ -108,7 +113,7 @@
 	$DBpass = "t2";
 	$DBname = "post";	
     $yn=$_POST['name'];
-    $yt=$_POST['textToEncode'];
+    $yt=$_POST['addr'];
     $yu=$_POST['upsc'];
     $yz=$_POST['zippr'];
     $yp=$_POST['pin'];
@@ -125,16 +130,18 @@
 	$stmt->execute();
 	  */   
                    $yn=$_POST['name'];
-                   $yt=$_POST['textToEncode'];
+                   $yt=$_POST['addr'];
                    $yu=$_POST['upsc'];
                    $yz=$_POST['zippr'];
                    $yp=$_POST['pin'];
+                   $yj=$_POST['tel'];
+
 				   
 				 /*  while($row=$stmt->fetch(PDO::FETCH_ASSOC))
 					{
 						$r=$row['UID'];  }
 	*/
-                   echo ("   Name:".$yn."<br>   Address:".$yt."<br>   UPU:".$yu."<br>  Type: ".$yz."<br>   PIN:".$yp);/*./"Code:".$r);*/
+                   echo ("   Name:".$yn."<br>   Address:".$yt."<br>   UPU:".$yu."<br>  Type: ".$yz."<br>   PIN:".$yp."<br> Tel:".$yj);/*./"Code:".$r);*/
                    
 				   
 				     }
@@ -145,8 +152,7 @@
     }
        $DBcon = null;
   
-				   ?></td>
-               </tr><tr><td colspan="2"><br/><br/><br/></tr></td></table>
+				   ?></td></tr><tr><td colspan="2"><br/><br/><br/></tr></td></table>
 
        </div>
    <script type="text/javascript">

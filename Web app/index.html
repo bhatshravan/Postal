@@ -7,8 +7,8 @@
     <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
-	
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/jquery.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -41,17 +41,10 @@
                 </div>
             </nav>
 
-            <form class="form-horizontal" align="center" action="delete.php" method="post" role="form">
+            <form data-toggle="validator" action="lh.php" method="post">
 
-                <div class="form-group">
-                    <label for="id" class="col-sm-5 control-label">POST ID</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" name="id" placeholder="Enter post ID">
-                    </div>
-                </div>
-                <span class="page-header">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </span>
+                <label>ID:</label> <input type="number" id="nae" placeholder="ID" name="nae"></input><br><br>
+                <p>&nbsp;<button id="pint" class="btn btn-primary" type="Submit">SUBMIT</button></p>
             </form>
         </center>
     </div>
