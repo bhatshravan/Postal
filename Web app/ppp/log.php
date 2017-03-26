@@ -30,8 +30,9 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li class=""><a href="../index.html">Home</a></li>
-                            <li class=""><a href="../reader.html">Postcode reader</a></li>
-                            <li class=""><a href="b2.html">Generator</a></li>
+                        <li class=""><a href="b2.html">Generator</a></li>
+                         <li class=""><a href="../ppp/b3.html">Offline Generator</a></li>
+                            <li class=""><a href="../Del/index.html">Delivery</a></li>
                             <li class="active"><a href="log.php">Logs</a></li>
                      
                         </ul>

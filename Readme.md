@@ -24,6 +24,11 @@ The folder consists of 2 parts-
   The web app uses php for the printing part so be sure to enable an xampp server or anything similar.
   The libraries used in web app are jquery,bootstrap and pdf417js by bkuzmic with bootstrap validator.
 
+## New features
+* Added offline generators but they don't post to a sql server.
+* Added a folder for java sorting programs to have all data in 1 place.
+* Added a bag tracking delivery under Web App/Del/index.html .    Any changes or beta versions to be changed and made ready by monday.
+
 
 ## Built With
 
