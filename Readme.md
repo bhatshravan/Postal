@@ -1,4 +1,4 @@
-# FirePOST
+# BIT HACKERS- FIREPOST
 
 The postal web app and android app made for postal services in Smart India Hackathon 
 
