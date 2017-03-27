@@ -83,32 +83,45 @@
         function generate() {
 
 
-            var uid = document.getElementById("uid");
+            var add = document.getElementById("addr");
             var nameid = document.getElementById("name");
-            var fid = document.getElementById("from");
-            var tid = document.getElementById("to");
-
+            var usid = document.getElementById("upsc");
+            var zid = document.getElementById("zippr");
+            var pinid = document.getElementById("pin");
+            var tid = document.getElementById("tel");
+            /*    if (document.getElementById('cod').checked) {
+                //Male radio button is checked
+                console.log("CODA");
+            } else if (document.getElementById('st').checked) {
+                //Female radio button is checked
+                console.log("stp");
+            } else if (document.getElementById('sp').checked) {
+                //Female radio button is checked
+                console.log("sp");
+            }
+*/
             var s = nameid.value;
-            var q = uid.value;
-            var l = fid.value;
-            var m = tid.value;
-            var n = tranid.value;
+            var q = add.value;
+            var l = usid.value;
+            var m = zid.value;
+            var n = pinid.value;
+            var mm = tid.value;
 
-            console.log(s, q, l, m, n);
-
-            var q1 = "\n UID:";
-            var s1 = "\n Delivery Name:";
-            var l1 = "\n From:";
-            var m1 = "\n To:";
-            var n1 = "\n Method:";
+            var q1 = "\n ADDRESS:";
+            var s1 = "\n Name:";
+            var l1 = "\n UPU:";
+            var m1 = "\n Type:";
+            var n1 = "\n PIN:";
+            var j1 = "\n Tel:";
 
             s = s1.concat(s);
             q = q1.concat(q);
             l = l1.concat(l);
             m = m1.concat(m);
             n = n1.concat(n);
+            j = j1.concat(mm);
 
-            var fina = s.concat(q, l, m, n);
+            var fina = s.concat(q, l, m, n, j);
             console.log(fina);
             PDF417.init(fina);
 
@@ -174,11 +187,9 @@
                             <li class=""><a href="../index.html">Home</a></li>
                             <!--li class=""><a href="../reader.html">Postcode reader</a></li-->
                             <li class="active"><a href="#">Generator</a></li>
-                            <li class=""><a href="log.php">Logs</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            <li class=""><a href="../ppp/b3.html">Offline Generator</a></li>
+                            <li class=""><a href="#">Delivery</a></li>
+                            <li class=""><a href="../pp/log.php">Logs</a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,21 +202,34 @@
                 <h1>Text to encode</h1>
             </p>
             <hr>
-            <form data-toggle="validator" action="n.php " method="post ">
+            <form data-toggle="validator" action="m.php" method="post">
 
-                <div class="form-group input-group input-group-lg "> <label for="inpName " class="control-label ">Name: </label><input type="text " id="name " placeholder="Delivery incharge " name="name " class="form-control "></input>
-                </div><br/>
-                <label>UID:</label> <input type="text " id="uid " placeholder="ID " name="uid "></input><br><br>
-                <label>FROM:</label><br><input type="text " id="from " style="width: 40%; height: 100px; " name="from " placeholder="From Address " required></input><br><br>
-                <label>TO:</label> <br><input type="text " id="to " style="width: 40%; height: 100px; " name="to " placeholder="To Address " required></input><br><br>
+                <div class="form-group input-group input-group-lg ">
+                    <label for="inpName " class="control-label ">Delivery incharge phone: </label>
+                    <input type="text " id="name" placeholder="Delivery incharge " name="name" class="form-control ">
+                    </input>
+                </div>
+                <br/>
+                <label>UID:</label> <input type="text " id="uid" placeholder="ID " name="uid"></input><br><br>
+                <label>FROM:</label><br><input type="text" id="from" style="width: 40%; height: 100px; " name="from" placeholder="From Address " required></input><br><br>
+                <label>TO:</label> <br><input type="text" id="to" style="width: 40%; height: 100px; " name="to" placeholder="To Address" required></input><br><br>
                 <label>Transport method:</label>
-                <input type="text " id="tm " placeholder="Type " name="tm "></input><br><br>
-
-                <p>&nbsp;<button id="pint " class="btn btn-primary " type="Submit ">PRINT</button></p>
+                <input type="text " id="tm" placeholder="Type " name="tm"></input><br><br>
+                <!--label>Date leaving</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div-->
+                <label>Date leaving:</label>
+                <input type="text " id="dl" placeholder="DD/MM/YY " name="dl"></input><br><br>
+                <label>Date arrving -destination:</label>
+                <input type="text " id="da" placeholder="DD/MM/YY " name="da"></input><br><br>
+                <p>&nbsp;<button id="pint" class="btn btn-primary" type="Submit">PRINT</button></p>
             </form>
-            <button onclick="generate() " id="genbutton " class="btn btn-primary ">Generate</button>
 
-            <div id="barcode "></div>
+            <div id="barcode"></div>
         </div>
     </center>
 </body>

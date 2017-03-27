@@ -3,7 +3,7 @@
 	$DBhost = "localhost";
 	$DBuser = "t2";
 	$DBpass = "t2";
-	$DBname = "post";
+	$DBname = "del";
 	
 	try{
 		
