@@ -17,20 +17,6 @@
         window.onload = function() {
 
 
-            var hub3_code = "HRVHUB30\nHRK\n" +
-                "000000000012355\n" +
-                "ZELJKO SENEKOVIC\n" +
-                "42000 VARAZDIN\n" +
-                "2DBK d.d.\n" +
-                "ALKARSKI PROLAZ 13B\n" +
-                "21230 SINJ\n" +
-                "HR1210010051863000160\n" +
-                "HR01\n" +
-                "7269-68949637676-00019\n" +
-                "COST\n" +
-                "Troskovi za 1. mjesec\n";
-
-            var nid = "yo";
             var o = "";
 
             //console.log("NAME: "+$("#name").val());
@@ -89,17 +75,7 @@
             var zid = document.getElementById("zippr");
             var pinid = document.getElementById("pin");
             var tid = document.getElementById("tel");
-            /*    if (document.getElementById('cod').checked) {
-                //Male radio button is checked
-                console.log("CODA");
-            } else if (document.getElementById('st').checked) {
-                //Female radio button is checked
-                console.log("stp");
-            } else if (document.getElementById('sp').checked) {
-                //Female radio button is checked
-                console.log("sp");
-            }
-*/
+
             var s = nameid.value;
             var q = add.value;
             var l = usid.value;
@@ -187,9 +163,9 @@
                             <li class=""><a href="../index.html">Home</a></li>
                             <!--li class=""><a href="../reader.html">Postcode reader</a></li-->
                             <li class="active"><a href="#">Generator</a></li>
-                            <li class=""><a href="../ppp/b3.html">Offline Generator</a></li>
+                            <li class=""><a href="../Gen/b3.html">Offline Generator</a></li>
                             <li class=""><a href="#">Delivery</a></li>
-                            <li class=""><a href="../pp/log.php">Logs</a></li>
+                            <li class=""><a href="../Gen/log.php">Logs</a></li>
                         </ul>
                     </div>
                 </div>
@@ -202,7 +178,7 @@
                 <h1>Text to encode</h1>
             </p>
             <hr>
-            <form data-toggle="validator" action="m.php" method="post">
+            <form data-toggle="validator" action="ondel.php" method="post">
 
                 <div class="form-group input-group input-group-lg ">
                     <label for="inpName " class="control-label ">Delivery incharge phone: </label>

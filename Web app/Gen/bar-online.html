@@ -14,70 +14,55 @@
     <script src="pdf417-min.js" type="text/javascript"></script>
 
     <script>
-        window.onload = function() {
+        window.onload = fun
+
+        var o = "";
+
+        //console.log("NAME: "+$("#name").val());
+        //console.log($("#textToEncode").text());
 
 
-            var hub3_code = "HRVHUB30\nHRK\n" +
-                "000000000012355\n" +
-                "ZELJKO SENEKOVIC\n" +
-                "42000 VARAZDIN\n" +
-                "2DBK d.d.\n" +
-                "ALKARSKI PROLAZ 13B\n" +
-                "21230 SINJ\n" +
-                "HR1210010051863000160\n" +
-                "HR01\n" +
-                "7269-68949637676-00019\n" +
-                "COST\n" +
-                "Troskovi za 1. mjesec\n";
+        var textToEncode = document.getElementById("addr");
+        textToEncode.value = o;
+        var nameid = document.getElementById("name");
+        nameid.value = o;
+        var usid = document.getElementById("upsc");
+        usid.value = o;
+        var zid = document.getElementById("zippr");
+        zid.value = o;
+        var pinid = document.getElementById("pin");
+        pinid.value = o;
 
-            var nid = "yo";
-            var o = "";
+        PDF417.init(o);
 
-            //console.log("NAME: "+$("#name").val());
-            //console.log($("#textToEncode").text());
+        var barcode = PDF417.getBarcodeArray();
 
+        // block sizes (width and height) in pixels
+        var bw = 2;
+        var bh = 2;
 
-            var textToEncode = document.getElementById("addr");
-            textToEncode.value = o;
-            var nameid = document.getElementById("name");
-            nameid.value = o;
-            var usid = document.getElementById("upsc");
-            usid.value = o;
-            var zid = document.getElementById("zippr");
-            zid.value = o;
-            var pinid = document.getElementById("pin");
-            pinid.value = o;
+        // create canvas element based on number of columns and rows in barcode
+        var canvas = document.createElement('canvas');
+        canvas.width = bw * barcode['num_cols'];
+        canvas.height = bh * barcode['num_rows'];
+        document.getElementById('barcode').appendChild(canvas);
 
-            PDF417.init(o);
+        var ctx = canvas.getContext('2d');
 
-            var barcode = PDF417.getBarcodeArray();
-
-            // block sizes (width and height) in pixels
-            var bw = 2;
-            var bh = 2;
-
-            // create canvas element based on number of columns and rows in barcode
-            var canvas = document.createElement('canvas');
-            canvas.width = bw * barcode['num_cols'];
-            canvas.height = bh * barcode['num_rows'];
-            document.getElementById('barcode').appendChild(canvas);
-
-            var ctx = canvas.getContext('2d');
-
-            // graph barcode elements
-            var y = 0;
-            // for each row
-            for (var r = 0; r < barcode['num_rows']; ++r) {
-                var x = 0;
-                // for each column
-                for (var c = 0; c < barcode['num_cols']; ++c) {
-                    if (barcode['bcode'][r][c] == 1) {
-                        ctx.fillRect(x, y, bw, bh);
-                    }
-                    x += bw;
+        // graph barcode elements
+        var y = 0;
+        // for each row
+        for (var r = 0; r < barcode['num_rows']; ++r) {
+            var x = 0;
+            // for each column
+            for (var c = 0; c < barcode['num_cols']; ++c) {
+                if (barcode['bcode'][r][c] == 1) {
+                    ctx.fillRect(x, y, bw, bh);
                 }
-                y += bh;
+                x += bw;
             }
+            y += bh;
+        }
         }
 
         function generate() {
@@ -187,7 +172,7 @@
                             <li class=""><a href="../index.html">Home</a></li>
                             <!--li class=""><a href="../reader.html">Postcode reader</a></li-->
                             <li class="active"><a href="#">Generator</a></li>
-                            <li class=""><a href="../ppp/b3.html">Offline Generator</a></li>
+                            <li class=""><a href="../Gen/bar-offline.html">Offline Generator</a></li>
                             <li class=""><a href="../Del/index.html">Delivery</a></li>
                             <li class=""><a href="log.php">Logs</a></li>
                         </ul>
@@ -206,25 +191,13 @@
                 <h1>Text to encode</h1>
             </p>
             <hr>
-            <form data-toggle="validator" action="n.php" method="post">
+            <form data-toggle="validator" action="ongen.php" method="post">
 
                 <div class="form-group input-group input-group-lg"> <label for="inpName" class="control-label">Name: </label><input type="text" id="name" placeholder="Name" name="name" class="form-control"></input>
                 </div><br/>
                 <label>ADDRESS:</label><br><input type="text" id="addr" style="width: 40%; height: 100px;" name="addr" placeholder="Address" required></input><br><br>
                 <label>UPU:</label> <input type="text" id="upsc" placeholder="UPSC code" name="upsc"></input><br><br>
                 <label> Delivery type:</label>
-
-
-                <!--div class="radio">
-                    <label><input type="radio" name="cod" id="cod" value="COD" checked="checked">COD</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="st" id="st" value="Stamp" checked="checked">Stamp</label>
-                </div>
-                <div class="radio disabled">
-                    <label><input type="radio" name="sp" id="sp" value="Speedpost" checked="checked">Speedpost</label>
-                </div>-->
-
                 <input type="text" id="zippr" placeholder="Type" name="zippr"></input><br><br>
                 <label>Pin:</label> <input type="number" id="pin" placeholder="6 DIGIT PIN" name="pin" data-error="INPUT PIN PLEASE" required></input><br><br>
                 <label>Phone:</label> <input type="number" id="tel" placeholder="Phone no." name="tel"></input><br><br>
