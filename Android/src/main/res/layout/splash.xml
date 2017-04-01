@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INDIA"
+        android:id="@+id/tv2"
+        android:textSize="50dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_above="@+id/tv3"/>
+
+    <TextView
+    android:textColor="#FFFFFF"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="POST"
+    android:id="@+id/tv3"
+    android:textSize="50dp"
+     android:textStyle="bold"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv2"
+        android:layout_centerHorizontal="true"
+
+        app:srcCompat="@drawable/ic_local_post_office_white_48dp" />
+</RelativeLayout>
