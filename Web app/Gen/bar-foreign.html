@@ -11,12 +11,26 @@
     <!--script src='../../bootstrap/validator.js'></script-->
 
     <script src="bcmath-min.js" type="text/javascript"></script>
-    <script src="pdf417.js" type="text/javascript"></script>
+    <script src="pdf417-min.js" type="text/javascript"></script>
 
     <script>
         window.onload = function() {
 
 
+            var hub3_code = "HRVHUB30\nHRK\n" +
+                "000000000012355\n" +
+                "ZELJKO SENEKOVIC\n" +
+                "42000 VARAZDIN\n" +
+                "2DBK d.d.\n" +
+                "ALKARSKI PROLAZ 13B\n" +
+                "21230 SINJ\n" +
+                "HR1210010051863000160\n" +
+                "HR01\n" +
+                "7269-68949637676-00019\n" +
+                "COST\n" +
+                "Troskovi za 1. mjesec\n";
+
+            var nid = "yo";
             var o = "";
 
             //console.log("NAME: "+$("#name").val());
@@ -72,34 +86,45 @@
             var add = document.getElementById("addr");
             var nameid = document.getElementById("name");
             var usid = document.getElementById("upsc");
-            var zid = document.getElementById("zippr");
+            //    var zid = document.getElementById("zippr");
             var pinid = document.getElementById("pin");
             var tid = document.getElementById("tel");
-
+            /*    if (document.getElementById('cod').checked) {
+                //Male radio button is checked
+                console.log("CODA");
+            } else if (document.getElementById('st').checked) {
+                //Female radio button is checked
+                console.log("stp");
+            } else if (document.getElementById('sp').checked) {
+                //Female radio button is checked
+                console.log("sp");
+            }
+*/
             var s = nameid.value;
             var q = add.value;
             var l = usid.value;
-            var m = zid.value;
+            //    var m = zid.value;
             var n = pinid.value;
-            var mm = tid.value;
+            var j = tid.value;
 
-            var q1 = "\n ADDRESS:";
+            var q1 = ";;";
             var s1 = "\n Name:";
             var l1 = "\n UPU:";
-            var m1 = "\n Type:";
+            //   var m1 = "\n Type:";
             var n1 = "\n PIN:";
             var j1 = "\n Tel:";
 
-            s = s1.concat(s);
-            q = q1.concat(q);
-            l = l1.concat(l);
-            m = m1.concat(m);
-            n = n1.concat(n);
-            j = j1.concat(mm);
 
-            var fina = s.concat(q, l, m, n, j);
-            console.log(fina);
+            s = q1.concat(s);
+            q = q1.concat(q);
+            l = q1.concat(l);
+            //  m = q1.concat(m);
+            n = q1.concat(n);
+            j = q1.concat(j);
+
+            var fina = s.concat(q, l, n, j);
             PDF417.init(fina);
+            console.log(fina);
 
             var barcode = PDF417.getBarcodeArray();
 
@@ -132,6 +157,10 @@
                 }
                 y += bh;
             }
+            document.getElementById("forma").style.visibility = "hidden";
+            document.getElementById("fooman").style.visibility = "hidden";
+            document.getElementById("fooman").innerHTML = "";
+            window.print();
         }
     </script>
 
@@ -148,64 +177,58 @@
     <center>
 
         <div class="container">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <div class="content" id="fooman">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span> 
                     </button>
-                        <a class="navbar-brand" href="#">BITHACKERS</a>
+                            <a class="navbar-brand" href="#">BITHACKERS</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class=""><a href="../index.html">Home</a></li>
+                                <!--li class=""><a href="../reader.html">Postcode reader</a></li-->
+                                <li class=""><a href="b2.html">Generator</a></li>
+                                <li class="active"><a href="#">Offline Generator</a></li>
+                                <li class=""><a href="../Del/index.html">Delivery</a></li>
+
+                                <li class=""><a href="log.php">Logs</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li class=""><a href="../index.html">Home</a></li>
-                            <!--li class=""><a href="../reader.html">Postcode reader</a></li-->
-                            <li class="active"><a href="#">Generator</a></li>
-                            <li class=""><a href="../Gen/b3.html">Offline Generator</a></li>
-                            <li class=""><a href="#">Delivery</a></li>
-                            <li class=""><a href="../Gen/log.php">Logs</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </nav>
 
 
-            <!--target="_blank"-->
+                <!--target="_blank"-->
 
-            <p>
-                <h1>Text to encode</h1>
-            </p>
-            <hr>
-            <form data-toggle="validator" action="ondel.php" method="post">
+                <p>
+                    <h1>Text to encode</h1>
+                </p>
+                <hr>
+                <form data-toggle="validator" id="forma">
 
-                <div class="form-group input-group input-group-lg ">
-                    <label for="inpName " class="control-label ">Delivery incharge phone: </label>
-                    <input type="text " id="name" placeholder="Delivery incharge " name="name" class="form-control ">
-                    </input>
-                </div>
-                <br/>
-                <label>UID:</label> <input type="text " id="uid" placeholder="ID " name="uid"></input><br><br>
-                <label>FROM:</label><br><input type="text" id="from" style="width: 40%; height: 100px; " name="from" placeholder="From Address " required></input><br><br>
-                <label>TO:</label> <br><input type="text" id="to" style="width: 40%; height: 100px; " name="to" placeholder="To Address" required></input><br><br>
-                <label>Transport method:</label>
-                <input type="text " id="tm" placeholder="Type " name="tm"></input><br><br>
-                <!--label>Date leaving</label>
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div-->
-                <label>Date leaving:</label>
-                <input type="text " id="dl" placeholder="DD/MM/YY " name="dl"></input><br><br>
-                <label>Date arrving -destination:</label>
-                <input type="text " id="da" placeholder="DD/MM/YY " name="da"></input><br><br>
-                <p>&nbsp;<button id="pint" class="btn btn-primary" type="Submit">PRINT</button></p>
-            </form>
+                    <div class="form-group input-group input-group-lg"> <label for="inpName" class="control-label">Name: </label><input type="text" id="name" placeholder="Name" name="name" class="form-control"></input>
+                    </div><br/>
+                    <label>ADDRESS:</label><br><input type="text" id="addr" style="width: 40%; height: 100px;" name="addr" placeholder="Address" required></input><br><br>
+                    <label>UPU:</label> <input type="text" id="upsc" placeholder="UPSC code" name="upsc"></input><br><br>
 
-            <div id="barcode"></div>
+                    <label>Pin:</label> <input type="number" id="pin" placeholder="6 DIGIT PIN" name="pin" data-error="INPUT PIN PLEASE" required></input><br><br>
+                    <label>Phone:</label> <input type="number" id="tel" placeholder="Phone no." name="tel"></input><br><br>
+                    <p>&nbsp;
+                        <!--button id="pint" class="btn btn-primary" type="Submit">PRINT</button-->
+                    </p>
+                </form>
+                <button onclick="generate()" id="genbutton" class="btn btn-primary">Generate</button>
+            </div>
+            <div id="lool">
+                <!--  document.getElementById("lool").innerHTML = "<table style='table-layout: fixed; width: 800px;margin-top: 10px;' cellpadding='5' cellspacing='5' border='1'><tr><td style='padding:0 0 0 0;' align='center'><div id='barcode'></div></td><td style='word-wrap: break-word' align='center'>HELLO</td></tr></table>";
+     -->
+                <div id="barcode"></div>
+            </div>
         </div>
     </center>
 </body>
