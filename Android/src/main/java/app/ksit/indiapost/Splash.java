@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.os.Bundle;
@@ -21,8 +22,11 @@ public class Splash extends Activity {
     TextView t1,t2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
+        this.setContentView(R.layout.splash);
+
         t1=(TextView) findViewById(R.id.tv2);
         t2=(TextView) findViewById(R.id.tv3);
         Typeface face = Typeface.createFromAsset(getAssets(),

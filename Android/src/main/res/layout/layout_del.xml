@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <!--ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"-->
+
+    <TextView
+       android:id="@+id/ttt"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:gravity="center"
+       android:background="#000000"
+       android:text="DELIVERY"
+       android:textColor="#FFFFFF"
+       android:layout_marginTop="30dp"
+       android:textSize="40dp"
+       android:textStyle="normal|bold" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:text="ID:"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/texta4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Enter delivery status,yes if delivered or reason of error if not delivered:"
+        android:textColor="#000000"/>
+
+           <EditText
+               android:id="@+id/editText"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:ems="10"
+               android:inputType="textPersonName"
+               android:text="Yes or error" />
+           <Button
+               android:id="@+id/b9"
+               android:layout_width="300dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:background="@android:color/white"
+               android:layout_gravity="center"
+               android:elevation="1dp"
+               android:text="Press to update"
+               android:textColor="@android:color/holo_red_dark" />
+
+    <Button
+        android:id="@+id/b10"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:layout_gravity="center"
+        android:elevation="1dp"
+        android:text="Get status"
+        android:textColor="@android:color/holo_red_dark" />
+
+
+</LinearLayout>

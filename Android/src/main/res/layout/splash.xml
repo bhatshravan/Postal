@@ -35,6 +35,5 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv2"
         android:layout_centerHorizontal="true"
-
-        app:srcCompat="@drawable/ic_local_post_office_white_48dp" />
+        android:background="@drawable/ic_local_post_office_white_48dp" />
 </RelativeLayout>
